@@ -45,7 +45,7 @@ function game() {
 
     console.log('Computer chose:', computerSelection);
     console.log('You chose:', playerSelection);
-    console.log('Your score, Computer score:', playerScore, compScore);
+    console.log(`Your score: ${playerScore},`,`Computer score: ${compScore}`);
   }
 
   if (playerScore === 3 && compScore < 3) {
