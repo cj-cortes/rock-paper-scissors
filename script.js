@@ -1,9 +1,7 @@
 // Define game variables
 let choices = ['rock', 'paper', 'scissors'];
-const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-
-
+let playerScore = 0;
+let compScore = 0;
 
 // Create function that randomly returns either "Rock," "Paper," or "Scissors"
 function getComputerChoice() {
@@ -19,17 +17,42 @@ function playRound(playerSelection, computerSelection) {
       (playerSelection === 'paper' && computerSelection === 'rock') ||
       (playerSelection === 'scissors' && computerSelection === 'paper')
   ) {
-    return 'You won!'
+    playerScore++;
+    return 'You won!';
   } else if (
       (playerSelection === 'rock' && computerSelection === 'paper') ||
       (playerSelection === 'paper' && computerSelection === 'scissors') ||
       (playerSelection === 'scissors' && computerSelection === 'rock')
   ) {
-    return 'You lost!'
+    compScore++;
+    return 'You lost!';
   } else {
-    return 'You tied!'
+    return 'You tied!';
   }
 }
 
 // test
 // console.log(playRound(playerSelection, computerSelection));
+// console.log(playerScore, compScore);
+
+// Create game() function to play best-of-five
+function game() {
+
+  while (compScore < 3 && playerScore < 3) {
+    let playerSelection = prompt('Pick rock, paper, or scissors:').toLowerCase(); // prompts the player to choose and make the input case-insensitive
+    const computerSelection = getComputerChoice();
+    playRound(playerSelection, computerSelection);
+
+    console.log('Computer chose:', computerSelection);
+    console.log('You chose:', playerSelection);
+    console.log('Your score, Computer score:', playerScore, compScore);
+  }
+
+  if (playerScore === 3 && compScore < 3) {
+    return 'You outsmarted the computer! Congrats, you won the game!';
+  } else if (compScore === 3 && playerScore < 3) {
+    return 'You suck! Guess better next time!';
+  } 
+}
+
+console.log(game());
