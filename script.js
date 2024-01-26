@@ -39,7 +39,8 @@ function playRound(playerSelection, computerSelection) {
 function game() {
 
   while (compScore < 3 && playerScore < 3) {
-    let playerSelection = prompt('Pick rock, paper, or scissors:').toLowerCase(); // prompts the player to choose and make the input case-insensitive
+    let playerSelection = prompt('Pick rock, paper, or scissors:'); // prompts the player to choose
+    playerSelection = playerSelection.toLowerCase(); // make the input case-insensitive
     const computerSelection = getComputerChoice();
 
     console.log('Computer chose:', computerSelection);
