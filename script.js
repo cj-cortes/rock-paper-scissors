@@ -39,7 +39,7 @@ function playRound(playerSelection, computerSelection) {
 function game() {
 
   while (compScore < 3 && playerScore < 3) {
-    let playerSelection = prompt('Pick rock, paper, or scissors:'); // prompts the player to choose
+    let playerSelection = prompt('Pick rock, paper, or scissors:');
 
     // Check if player pressed cancel
     if (playerSelection === null || playerSelection === undefined) {
